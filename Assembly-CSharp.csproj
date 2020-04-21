@@ -45,7 +45,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\TakeItem.cs" />
+     <Compile Include="Assets\Scripts\TrashItem.cs" />
+     <None Include="Assets\FreeLabAssets\Shaders\SBS_Mana.shader" />
  <Reference Include="UnityEngine">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -592,9 +596,29 @@
       <Project>{0b7b5af0-de75-ef53-cbc0-3be784438a3b}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.ProGrids.csproj">
+      <Project>{49e400be-f68d-29d5-7ee9-800db389deb4}</Project>
+      <Name>Unity.ProGrids</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{c1311bca-a10a-d5b5-62b6-1c03683c7a41}</Project>
       <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.csproj">
+      <Project>{1fd73181-700f-60bd-3e05-0e6d1feed8f5}</Project>
+      <Name>Unity.ProBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
+      <Project>{c6a5a33c-118d-5f2a-909e-a3c3527f3116}</Project>
+      <Name>Unity.ProBuilder.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
+      <Project>{94d72cf7-82bb-bb91-2bf8-5e56732cd023}</Project>
+      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProGrids.Editor.csproj">
+      <Project>{c0800886-2325-d706-bcce-d75ca8df4687}</Project>
+      <Name>Unity.ProGrids.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{a2b1704b-de69-77f1-02eb-18b38630e791}</Project>
@@ -616,6 +640,10 @@
       <Project>{38604dc8-890a-e944-a5fd-4cff83f44029}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
+      <Project>{762fdaef-7a92-8f0d-1988-55f7d0839bc1}</Project>
+      <Name>Unity.ProBuilder.AddOns.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{b0976e30-2f3f-c6ef-57ed-c2479d9a2773}</Project>
       <Name>Unity.TextMeshPro</Name>
@@ -623,30 +651,6 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{f30edebf-390a-419e-a24b-7e14ec6efabb}</Project>
       <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.csproj">
-      <Project>{1fd73181-700f-60bd-3e05-0e6d1feed8f5}</Project>
-      <Name>Unity.ProBuilder</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
-      <Project>{c6a5a33c-118d-5f2a-909e-a3c3527f3116}</Project>
-      <Name>Unity.ProBuilder.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
-      <Project>{94d72cf7-82bb-bb91-2bf8-5e56732cd023}</Project>
-      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
-      <Project>{762fdaef-7a92-8f0d-1988-55f7d0839bc1}</Project>
-      <Name>Unity.ProBuilder.AddOns.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProGrids.csproj">
-      <Project>{49e400be-f68d-29d5-7ee9-800db389deb4}</Project>
-      <Name>Unity.ProGrids</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProGrids.Editor.csproj">
-      <Project>{c0800886-2325-d706-bcce-d75ca8df4687}</Project>
-      <Name>Unity.ProGrids.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

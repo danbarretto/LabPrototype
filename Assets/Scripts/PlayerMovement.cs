@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    // Start is called before the first frame update
-    public string xAxis, zAxis, fire;
+    public string xAxis, zAxis, fire, fire2;
 
     public float speed = 20f;
     private Rigidbody rigidBody;
 
-    // Update is called once per frame
     private void Start() {
         rigidBody = GetComponent<Rigidbody>();
     }
@@ -23,9 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 
         rigidBody.velocity = new Vector3(moveHorizontal * speed, 0f, moveVertical * speed);
 
-        if(Input.GetButtonDown(fire)){
-            Debug.Log("Ação");
-        }
-
     }
+
+    
 }

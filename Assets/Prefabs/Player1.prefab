@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6980422477288466367}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,4 +127,7 @@ MonoBehaviour:
   xAxis: Horizontal
   zAxis: Vertical
   fire: Fire1
+  fire2: Fire2
   speed: 20
+  boostDuration: 0.1
+  boostSpeed: 5
