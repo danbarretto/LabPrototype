@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5871273235874362650}
   - component: {fileID: 5871273235874362651}
   - component: {fileID: 5871273235874362648}
-  - component: {fileID: 5871273235874362655}
+  - component: {fileID: 9206362088032191996}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &5871273235874362655
+--- !u!114 &9206362088032191996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5871273235874362649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc23edb0d61a3b3bb2464e9273f84b2, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfc9407719c57a7a8857b0a30a490b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: Horizontal_P2
@@ -129,5 +129,5 @@ MonoBehaviour:
   fire: Fire1_P2
   fire2: Fire2_P2
   speed: 20
-  boostDuration: 0.1
-  boostSpeed: 5
+  isTaking: 0
+  focus: {fileID: 0}
