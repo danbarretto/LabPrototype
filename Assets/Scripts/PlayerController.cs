@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public string xAxis, zAxis, fire, fire2;
+    private string xAxis, zAxis, fire, fire2;
 
     public float speed = 20f, interactionRadius = 3f;
+    public bool isInZone = false;
     private Rigidbody rigidBody;
     public Interactable focus;
+    [System.Serializable]
+    public enum Player {
+        Player1,
+        Player2
+    }
+
+    public Player playerNum;
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
@@ -15,6 +23,17 @@ public class PlayerController : MonoBehaviour {
     }
     private void Start() {
         rigidBody = GetComponent<Rigidbody>();
+        if (playerNum == Player.Player1) {
+            xAxis = GameManager.instace.Horizontal_P1;
+            zAxis = GameManager.instace.Vertical_P1;
+            fire = GameManager.instace.Fire1_P1;
+            fire2 = GameManager.instace.Fire2_P1;
+        } else {
+            xAxis = GameManager.instace.Horizontal_P2;
+            zAxis = GameManager.instace.Vertical_P2;
+            fire = GameManager.instace.Fire1_P2;
+            fire2 = GameManager.instace.Fire2_P2;
+        }
     }
     void Update() {
         float moveHorizontal = Input.GetAxis(xAxis);
@@ -26,31 +45,42 @@ public class PlayerController : MonoBehaviour {
 
         rigidBody.velocity = new Vector3(moveHorizontal * speed, 0f, moveVertical * speed);
 
+        if (!isInZone && transform.childCount > 0 && Input.GetButtonDown(fire)) {
+            GameObject item = transform.GetChild(0).gameObject;
+            item.transform.parent = null;
+            item.tag = "Interactable";
+        }
+
+    }
+
+    public string getFire() {
+        return fire;
     }
 
     private void OnTriggerStay(Collider other) {
         if (other.CompareTag("Interactable")) {
-
             Interactable interactable = other.GetComponent<Interactable>();
             if (interactable != null) {
-                interactable.isInteracting = true;
+                SetFocus(interactable);
                 if (Input.GetButtonDown(fire)) {
-                    SetFocus(interactable);
+                    interactable.Interact();
+                    //isInZone=false;
                 }
             }
         }
     }
-
     private void OnTriggerExit(Collider other) {
         if (other.CompareTag("Interactable")) {
-            Interactable interactable = other.GetComponent<Interactable>();
-            if (interactable != null) {
-                interactable.isInteracting = false;
-            }
+            isInZone = false;
         }
     }
 
-    void SetFocus(Interactable newFocus) {
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Interactable")){
+            isInZone=true;
+        }
+    }
+    public void SetFocus(Interactable newFocus) {
         if (newFocus != focus) {
             if (focus != null)
                 focus.OnDefocused();
@@ -59,10 +89,11 @@ public class PlayerController : MonoBehaviour {
         newFocus.OnFocused(transform);
     }
 
-    void RemoveFocus() {
+    public void RemoveFocus() {
         if (focus != null)
             focus.OnDefocused();
         focus = null;
+        
     }
 
 }

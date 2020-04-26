@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3800668964457324972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InteractionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3800668965073520394}
   - component: {fileID: 3800668965073520393}
   - component: {fileID: -4730496567877335153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,5 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7aa5ca6d416dde9d819a2931a60e308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
   interactionTransform: {fileID: 0}

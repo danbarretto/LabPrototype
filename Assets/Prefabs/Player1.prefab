@@ -124,10 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfc9407719c57a7a8857b0a30a490b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: Horizontal
-  zAxis: Vertical
-  fire: Fire1
-  fire2: Fire2
   speed: 20
-  isTaking: 0
+  interactionRadius: 2.5
   focus: {fileID: 0}
+  playerNum: 0

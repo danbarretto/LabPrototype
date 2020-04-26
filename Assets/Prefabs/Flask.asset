@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c4c790766f3b0d71add57c41af91f28, type: 3}
+  m_Script: {fileID: 11500000, guid: f5d805866444159d199ca8a92766bab1, type: 3}
   m_Name: Flask
   m_EditorClassIdentifier: 
-  itemName: Flask
-  prefab: {fileID: 1822811081740728, guid: 9d79a38f83fd64d7890b96cd421bf2a8, type: 3}
+  name: Flask
+  model: {fileID: 1531356858048348948, guid: 79cd945dc7c35acd89b4a8d31c645980, type: 3}
+  score: 100
