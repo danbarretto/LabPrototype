@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown(fire)) {
             if(focus !=null && isInZone){
                 focus.Interact();
-            }else if(!isInZone && child!=focus){
+            }else if(!isInZone && child!=null){
                 child.Interact();
             }
         }
