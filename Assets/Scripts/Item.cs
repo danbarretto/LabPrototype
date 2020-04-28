@@ -8,5 +8,8 @@ public class Item : ScriptableObject {
     new public string name;
     public GameObject model;
     public int score;
+    
+    public bool isSafe, isContainer;
+    public Material fillContainerMaterial;
 
 }

@@ -6,8 +6,9 @@ public class TrashStation : Interactable {
 
     public override void Interact() {
         if (player.childCount > 0) {
-            player.GetComponent<PlayerController>().child = null;
-            Destroy(player.GetChild(0).gameObject);
+            PlayerController pc = player.GetComponent<PlayerController>();
+            Destroy(pc.child.gameObject);
+            pc.child = null;
         }
     }
 }

@@ -8,6 +8,10 @@ public class Holdable : Interactable {
     private PlayerController pc;
     private bool onGround = false;
     private Rigidbody rb;
+    public bool isSafe, isContainer;
+
+    public List<string> contents;
+
     void Awake() {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;

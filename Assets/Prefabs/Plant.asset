@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5d805866444159d199ca8a92766bab1, type: 3}
-  m_Name: Flask
+  m_Name: Plant
   m_EditorClassIdentifier: 
-  name: Flask
-  model: {fileID: 1531356858048348948, guid: 79cd945dc7c35acd89b4a8d31c645980, type: 3}
-  score: 100
-  isSafe: 1
-  isContainer: 1
-  fillContainerMaterial: {fileID: 0}
+  name: Plant
+  model: {fileID: 2298842170518832108, guid: 783c6b91b7fe47cedba805b78954c565, type: 3}
+  score: 300
+  isSafe: 0
+  isContainer: 0
+  fillContainerMaterial: {fileID: 2100000, guid: 8c8d5f7a2bc3c4622a9aa9d96a6df9f1,
+    type: 2}
