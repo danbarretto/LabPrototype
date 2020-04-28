@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public bool isInZone = false;
     private Rigidbody rigidBody;
     public Interactable focus;
+    public Interactable child;
     [System.Serializable]
     public enum Player {
         Player1,
@@ -45,10 +46,12 @@ public class PlayerController : MonoBehaviour {
 
         rigidBody.velocity = new Vector3(moveHorizontal * speed, 0f, moveVertical * speed);
 
-        if (!isInZone && transform.childCount > 0 && Input.GetButtonDown(fire)) {
-            GameObject item = transform.GetChild(0).gameObject;
-            item.transform.parent = null;
-            item.tag = "Interactable";
+        if (Input.GetButtonDown(fire)) {
+            if(focus !=null && isInZone){
+                focus.Interact();
+            }else if(!isInZone && child!=focus){
+                child.Interact();
+            }
         }
 
     }
@@ -57,15 +60,12 @@ public class PlayerController : MonoBehaviour {
         return fire;
     }
 
-    private void OnTriggerStay(Collider other) {
+    private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Interactable")) {
+            isInZone = true;
             Interactable interactable = other.GetComponent<Interactable>();
             if (interactable != null) {
                 SetFocus(interactable);
-                if (Input.GetButtonDown(fire)) {
-                    interactable.Interact();
-                    //isInZone=false;
-                }
             }
         }
     }
@@ -75,11 +75,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Interactable")){
-            isInZone=true;
-        }
-    }
     public void SetFocus(Interactable newFocus) {
         if (newFocus != focus) {
             if (focus != null)
@@ -93,7 +88,7 @@ public class PlayerController : MonoBehaviour {
         if (focus != null)
             focus.OnDefocused();
         focus = null;
-        
+
     }
 
 }
