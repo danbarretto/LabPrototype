@@ -10,11 +10,10 @@ public class CreateStation : Interactable {
         if (player.childCount == 0 && itemToCreate.isSafe) {
             CreateItem(player);
         } else if (!itemToCreate.isSafe) {
-            Debug.Log("Requires a Container!");
-            Holdable container = (Holdable) player.GetComponent<PlayerController>().child;
-            if(container && container.isSafe && container.isContainer){
+            Holdable container = (Holdable)player.GetComponent<PlayerController>().child;
+            if (container && container.isSafe && container.isContainer) {
                 container.GetComponent<MeshRenderer>().material = itemToCreate.fillContainerMaterial;
-                container.contents.Add(itemToCreate.name);
+                container.contents.Add(itemToCreate.reagent);
                 container.score += itemToCreate.score;
             }
         }
@@ -26,22 +25,19 @@ public class CreateStation : Interactable {
             transform.position.z - 1);
         GameObject objectView = Instantiate(itemToCreate.model, parentPos, Quaternion.identity);
         objectView.transform.parent = transform;
-        Destroy(objectView.GetComponent<Holdable>());
     }
 
     private void CreateItem(Transform parentTransform) {
         PlayerController pc = player.GetComponent<PlayerController>();
-        GameObject newHoldable = Instantiate(itemToCreate.model, new Vector3(
-            parentTransform.position.x,
-            parentTransform.position.y,
-            parentTransform.position.z + 1
-        ), Quaternion.identity);
+        GameObject newHoldable = Instantiate(itemToCreate.model, (player.forward * .8f) + player.position, Quaternion.identity);
         newHoldable.transform.parent = parentTransform;
+        newHoldable.transform.localScale = Vector3.one;
+
         newHoldable.GetComponent<Holdable>().score = itemToCreate.score;
         newHoldable.GetComponent<Holdable>().isSafe = itemToCreate.isSafe;
         newHoldable.GetComponent<Holdable>().isContainer = itemToCreate.isContainer;
         pc.RemoveFocus();
-        if(pc.child == null)
+        if (pc.child == null)
             pc.child = newHoldable.GetComponent<Interactable>();
     }
 }

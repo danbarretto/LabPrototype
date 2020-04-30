@@ -19,3 +19,5 @@ MonoBehaviour:
   isContainer: 0
   fillContainerMaterial: {fileID: 2100000, guid: 8c8d5f7a2bc3c4622a9aa9d96a6df9f1,
     type: 2}
+  reagent: {fileID: -7097129077982258151, guid: 783c6b91b7fe47cedba805b78954c565,
+    type: 3}

@@ -17,4 +17,8 @@ public class DeliverStation : Interactable {
             }
         }
     }
+
+    private void Start() {
+        scoreText.text = "Score: 0";
+    }
 }

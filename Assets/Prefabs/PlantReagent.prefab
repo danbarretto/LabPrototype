@@ -89,8 +89,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3007411824554439167}
   - component: {fileID: 4665603826228565548}
-  - component: {fileID: 1077374819990789426}
   - component: {fileID: 4577114998605093278}
+  - component: {fileID: -7097129077982258151}
   m_Layer: 0
   m_Name: PlantReagent
   m_TagString: Untagged
@@ -128,21 +128,6 @@ CapsuleCollider:
   m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!114 &1077374819990789426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2298842170518832108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b865c4953a0278417b9e14364bc2678c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTransform: {fileID: 0}
-  score: 0
-  isSafe: 1
 --- !u!54 &4577114998605093278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -157,8 +142,23 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-7097129077982258151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298842170518832108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0beec7fa4dd827498cad8e5b20d190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canHeat: 1
+  isHeated: 0
+  heatedMaterial: {fileID: 2100000, guid: 9f9a6f9482173ea198d9ebcb38c668d2, type: 2}
 --- !u!1 &4285062275280381719
 GameObject:
   m_ObjectHideFlags: 0

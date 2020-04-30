@@ -11,5 +11,5 @@ public class Item : ScriptableObject {
     
     public bool isSafe, isContainer;
     public Material fillContainerMaterial;
-
+    public Reagent reagent;
 }
