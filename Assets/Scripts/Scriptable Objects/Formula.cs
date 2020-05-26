@@ -15,4 +15,6 @@ public class Formula : ScriptableObject {
 
     public bool completed;
 
+    public GameObject panel;
+
 }

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   name: Water
-  model: {fileID: 0}
+  model: {fileID: 7547342025046114683, guid: 06894061a448c1f04a3b94c9f60c1022, type: 3}
   score: 0
   isSafe: 0
   isContainer: 0
-  fillContainerMaterial: {fileID: 2100000, guid: 860c7fb5eacb5768292c2507eaa40d66,
+  fillContainerMaterial: {fileID: 2100000, guid: e73c3cb7041aea66d862c31b7c82de58,
     type: 2}
-  reagent: {fileID: 0}
+  reagent: {fileID: 7589415498682686224, guid: 06894061a448c1f04a3b94c9f60c1022, type: 3}

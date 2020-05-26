@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
         var panel = Instantiate(formulaPanel);
         panel.GetComponent<FormulaController>().formula = toDoFormulas[0];
         panel.transform.SetParent(canvas.transform,false);
+        toDoFormulas[0].panel = panel;
     }
 
 }
