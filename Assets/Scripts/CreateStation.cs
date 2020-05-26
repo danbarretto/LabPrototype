@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateStation : Interactable {
+public class CreateStation : Station {
 
-    public Item itemToCreate;
-
+    private Item itemToCreate;
     public override void Interact() {
-        if (player.childCount == 0 && itemToCreate.isSafe) {
+        if (itemToCreate.isSafe) {
             CreateItem(player);
         } else if (!itemToCreate.isSafe) {
             Holdable container = (Holdable)player.GetComponent<PlayerController>().child;
-            if (container && container.isSafe && container.isContainer) {
+            if (container && container.isSafe && container.isContainer && !container.actions.Contains(stationAction)) {
                 container.GetComponent<MeshRenderer>().material = itemToCreate.fillContainerMaterial;
                 container.contents.Add(itemToCreate.reagent);
-                container.score += itemToCreate.score;
+                base.Interact();
+                
             }
         }
     }
     private void Start() {
+        itemToCreate = stationAction.items[0];
         Vector3 parentPos = new Vector3(
             transform.position.x + 1,
             transform.position.y + 1,
@@ -29,11 +30,18 @@ public class CreateStation : Interactable {
 
     private void CreateItem(Transform parentTransform) {
         PlayerController pc = player.GetComponent<PlayerController>();
+        GameObject experiment = new GameObject("Experiment");
+        experiment.AddComponent<Experiment>();
+        experiment.transform.parent = parentTransform;
+        Experiment exp = experiment.GetComponent<Experiment>();
+
         GameObject newHoldable = Instantiate(itemToCreate.model, (player.forward * .8f) + player.position, Quaternion.identity);
-        newHoldable.transform.parent = parentTransform;
+        exp.parentInteractable = newHoldable.GetComponent<Interactable>();
+        exp.actions.Add(stationAction);
+
+        newHoldable.transform.parent = experiment.transform;
         newHoldable.transform.localScale = Vector3.one;
 
-        newHoldable.GetComponent<Holdable>().score = itemToCreate.score;
         newHoldable.GetComponent<Holdable>().isSafe = itemToCreate.isSafe;
         newHoldable.GetComponent<Holdable>().isContainer = itemToCreate.isContainer;
         pc.RemoveFocus();

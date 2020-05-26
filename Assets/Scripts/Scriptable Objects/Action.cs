@@ -7,6 +7,6 @@ public class Action : ScriptableObject {
 
     public new string name;
     public float actionTime;
-    public List<Item> reagents;
+    public List<Item> items;
 
 }

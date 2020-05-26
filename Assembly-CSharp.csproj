@@ -2,6 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <CscToolPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Tools/RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.sh</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,9 +47,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
      <Compile Include="Assets\Scripts\Containers.cs" />
      <Compile Include="Assets\Scripts\CreateStation.cs" />
      <Compile Include="Assets\Scripts\DeliverStation.cs" />
+     <Compile Include="Assets\Scripts\Experiment.cs" />
      <Compile Include="Assets\Scripts\Formula\FormulaController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HeatStation.cs" />
@@ -58,6 +69,7 @@
      <Compile Include="Assets\Scripts\Scriptable Objects\Action.cs" />
      <Compile Include="Assets\Scripts\Scriptable Objects\Formula.cs" />
      <Compile Include="Assets\Scripts\Scriptable Objects\Item.cs" />
+     <Compile Include="Assets\Scripts\Station.cs" />
      <Compile Include="Assets\Scripts\Tools.cs" />
      <Compile Include="Assets\Scripts\TrashStation.cs" />
      <None Include="Assets\FreeLabAssets\Shaders\SBS_Mana.shader" />
@@ -105,9 +117,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine">
- <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -282,9 +291,6 @@
  </Reference>
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor">
- <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -639,7 +645,7 @@
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

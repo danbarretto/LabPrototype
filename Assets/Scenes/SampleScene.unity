@@ -154,8 +154,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
-  m_Center: {x: 1, y: 0.5, z: -1}
+  m_Size: {x: 2, y: 1, z: 4}
+  m_Center: {x: 1, y: 1, z: -2}
 --- !u!114 &26408133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTransform: {fileID: 0}
-  itemToCreate: {fileID: 11400000, guid: 686faffe3792a70f7848e6ab8e47205c, type: 2}
+  actions: []
+  stationAction: {fileID: 11400000, guid: 539877be78e5879908c4972c5f7fadce, type: 2}
 --- !u!64 &26408134
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14089,6 +14090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTransform: {fileID: 0}
+  actions: []
+  stationAction: {fileID: 11400000, guid: f4b8b6704f72b0ddbaf51fcbb298c626, type: 2}
 --- !u!65 &1078300714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14440,7 +14443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTransform: {fileID: 0}
-  itemToCreate: {fileID: 11400000, guid: adcc03ec0bb6c09ab84a28ad22d0511f, type: 2}
+  actions: []
+  stationAction: {fileID: 11400000, guid: 7dde4a23c529a3a2b8ebb84261488ded, type: 2}
 --- !u!64 &1123669040
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15727,6 +15731,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTransform: {fileID: 0}
+  actions: []
+  stationAction: {fileID: 0}
 --- !u!65 &2091610356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16198,6 +16204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTransform: {fileID: 0}
+  actions: []
   scoreText: {fileID: 1062671029}
 --- !u!1001 &5871273235661856569
 PrefabInstance:

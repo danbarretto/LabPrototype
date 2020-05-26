@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HeatStation : Interactable {
+public class HeatStation : Station {
 
     public override void Interact() {
         PlayerController pc = player.GetComponent<PlayerController>();
@@ -9,7 +9,6 @@ public class HeatStation : Interactable {
             if (holdable) {
                 foreach (Reagent reagent in holdable.contents) {
                     if (reagent.canHeat && !reagent.isHeated) {
-                        holdable.score += 50;
                         holdable.GetComponent<MeshRenderer>().material = reagent.heatedMaterial;
                         reagent.isHeated = true;
                     }
@@ -17,5 +16,6 @@ public class HeatStation : Interactable {
                 }
             }
         }
+        base.Interact();
     }
 }

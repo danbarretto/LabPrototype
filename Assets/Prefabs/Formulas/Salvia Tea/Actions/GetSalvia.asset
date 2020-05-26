@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e6b815da49480ecaf2640c9ebd51fa, type: 3}
-  m_Name: GetReagent
+  m_Name: GetSalvia
   m_EditorClassIdentifier: 
-  name: Get Reagent
+  name: Get Salvia
   actionTime: 0
-  reagents:
-  - {fileID: 11400000, guid: 686faffe3792a70f7848e6ab8e47205c, type: 2}
-  - {fileID: 11400000, guid: 696e12de0d11aaf07986616c9dd65335, type: 2}
+  items:
   - {fileID: 11400000, guid: adcc03ec0bb6c09ab84a28ad22d0511f, type: 2}

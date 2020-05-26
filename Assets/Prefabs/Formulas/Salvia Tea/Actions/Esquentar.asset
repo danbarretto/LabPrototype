@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d805866444159d199ca8a92766bab1, type: 3}
-  m_Name: Flask
+  m_Script: {fileID: 11500000, guid: 47e6b815da49480ecaf2640c9ebd51fa, type: 3}
+  m_Name: Esquentar
   m_EditorClassIdentifier: 
-  name: Flask
-  model: {fileID: 1531356858048348948, guid: 79cd945dc7c35acd89b4a8d31c645980, type: 3}
-  score: 100
-  isSafe: 1
-  isContainer: 1
-  fillContainerMaterial: {fileID: 0}
+  name: Heat
+  actionTime: 15
+  items: []

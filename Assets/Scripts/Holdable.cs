@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Holdable : Interactable {
 
-    public int score;
     private PlayerController pc;
     private bool onGround = false;
     private Rigidbody rb;
@@ -20,19 +19,19 @@ public class Holdable : Interactable {
     public override void Interact() {
         //transform.localScale = Vector3.one;
         if (onGround) {
-            transform.parent = player;
+            /*transform.parent = player.GetComponent<Experiment>().parentInteractable.transform;;
             pc = transform.parent.GetComponent<PlayerController>();
             pc.child = this;
-            onGround = false;
+            onGround = false;*/
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.rotation = Quaternion.identity;
             StartCoroutine(ReturnToHand((player.forward * .8f) + player.position, 0.5f));
 
         } else {
-            pc = transform.parent.GetComponent<PlayerController>();
+            /*pc = transform.parent.GetComponent<PlayerController>();
             transform.parent = null;
             pc.child = null;
-            onGround = true;
+            onGround = true;*/
             rb.useGravity = true;
             rb.isKinematic = false;
             rb.constraints = RigidbodyConstraints.None;

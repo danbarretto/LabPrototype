@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d805866444159d199ca8a92766bab1, type: 3}
+  m_Name: Flask
+  m_EditorClassIdentifier: 
+  name: Flask
+  model: {fileID: 1531356858048348948, guid: 79cd945dc7c35acd89b4a8d31c645980, type: 3}
+  score: 100
+  isSafe: 1
+  isContainer: 1
+  fillContainerMaterial: {fileID: 0}
+  reagent: {fileID: 0}

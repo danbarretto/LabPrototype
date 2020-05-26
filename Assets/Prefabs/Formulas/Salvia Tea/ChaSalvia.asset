@@ -16,6 +16,8 @@ MonoBehaviour:
   score: 600
   maxWaitTime: 60
   actions:
-  - {fileID: 11400000, guid: 71a00a0ab128ba35b9c8190f255b5766, type: 2}
+  - {fileID: 11400000, guid: 539877be78e5879908c4972c5f7fadce, type: 2}
+  - {fileID: 11400000, guid: 024b01614ffccc37788e4f6350388cdb, type: 2}
+  - {fileID: 11400000, guid: 7dde4a23c529a3a2b8ebb84261488ded, type: 2}
   - {fileID: 11400000, guid: f4b8b6704f72b0ddbaf51fcbb298c626, type: 2}
   completed: 0

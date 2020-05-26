@@ -7,6 +7,8 @@ public class Interactable : MonoBehaviour {
     protected bool isFocused = false, hasInteracted = false;
     protected Transform player;
 
+    public List<Action> actions;
+    
     public virtual void Interact() {
         //This method is meant to be overwritten
         Debug.Log("Interact with " + interactionTransform.name);
