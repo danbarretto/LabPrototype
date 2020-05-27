@@ -6,13 +6,12 @@ public class CreateStation : Station {
 
     private Item itemToCreate;
     public override void Interact() {
-        if (itemToCreate.isSafe) {
+        if (itemToCreate.isSafe && !player.GetComponentInChildren<Experiment>()) {
             CreateItem(player);
         } else if (!itemToCreate.isSafe) {
             Holdable container = (Holdable)player.GetComponent<PlayerController>().child;
             if (container && container.isSafe && container.isContainer && !container.actions.Contains(stationAction)) {
                 container.GetComponent<MeshRenderer>().material = itemToCreate.fillContainerMaterial;
-                container.contents.Add(itemToCreate.reagent);
                 base.Interact();
                 
             }

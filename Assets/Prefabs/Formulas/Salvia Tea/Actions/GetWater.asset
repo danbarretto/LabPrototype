@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GetWater
   m_EditorClassIdentifier: 
   name: Get Water
-  actionTime: 0
+  canHeat: 1
+  heatTime: 15
   items:
   - {fileID: 11400000, guid: 696e12de0d11aaf07986616c9dd65335, type: 2}

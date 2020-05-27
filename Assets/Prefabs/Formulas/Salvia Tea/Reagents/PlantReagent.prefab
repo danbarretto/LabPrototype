@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 3007411824554439167}
   - component: {fileID: 4665603826228565548}
   - component: {fileID: 4577114998605093278}
-  - component: {fileID: -7097129077982258151}
   m_Layer: 0
   m_Name: PlantReagent
   m_TagString: Untagged
@@ -144,21 +143,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &-7097129077982258151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2298842170518832108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0beec7fa4dd827498cad8e5b20d190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canHeat: 1
-  isHeated: 0
-  heatedMaterial: {fileID: 2100000, guid: 9f9a6f9482173ea198d9ebcb38c668d2, type: 2}
 --- !u!1 &4285062275280381719
 GameObject:
   m_ObjectHideFlags: 0

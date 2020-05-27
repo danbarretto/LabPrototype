@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GetSalvia
   m_EditorClassIdentifier: 
   name: Get Salvia
-  actionTime: 0
+  canHeat: 1
+  heatTime: 5
   items:
   - {fileID: 11400000, guid: adcc03ec0bb6c09ab84a28ad22d0511f, type: 2}

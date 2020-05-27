@@ -9,7 +9,6 @@ public class Item : ScriptableObject {
     public GameObject model;
     public int score;
 
-    public bool isSafe, isContainer;
+    public bool isSafe, isContainer, canHeat;
     public Material fillContainerMaterial;
-    public Reagent reagent;
 }

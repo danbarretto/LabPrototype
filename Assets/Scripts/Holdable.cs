@@ -8,7 +8,6 @@ public class Holdable : Interactable {
     private bool onGround = false;
     private Rigidbody rb;
     public bool isSafe, isContainer;
-    public List<Reagent> contents;
     
     void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -19,19 +18,19 @@ public class Holdable : Interactable {
     public override void Interact() {
         //transform.localScale = Vector3.one;
         if (onGround) {
-            /*transform.parent = player.GetComponent<Experiment>().parentInteractable.transform;;
-            pc = transform.parent.GetComponent<PlayerController>();
+            transform.parent.parent = player;
+            pc = transform.parent.GetComponentInParent<PlayerController>();
             pc.child = this;
-            onGround = false;*/
+            onGround = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.rotation = Quaternion.identity;
             StartCoroutine(ReturnToHand((player.forward * .8f) + player.position, 0.5f));
 
         } else {
-            /*pc = transform.parent.GetComponent<PlayerController>();
-            transform.parent = null;
+            pc = transform.parent.GetComponentInParent<PlayerController>();
+            transform.parent.parent = null;
             pc.child = null;
-            onGround = true;*/
+            onGround = true;
             rb.useGravity = true;
             rb.isKinematic = false;
             rb.constraints = RigidbodyConstraints.None;

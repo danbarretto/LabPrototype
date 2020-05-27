@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e6b815da49480ecaf2640c9ebd51fa, type: 3}
-  m_Name: Esquentar
+  m_Name: Heat up
   m_EditorClassIdentifier: 
-  name: Heat
-  actionTime: 15
+  name: Heat up
   items: []

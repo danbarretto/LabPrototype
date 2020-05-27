@@ -6,7 +6,9 @@ using UnityEngine;
 public class Action : ScriptableObject {
 
     public new string name;
-    public float actionTime;
+    public bool canHeat;
+    
+    public float heatTime;
     public List<Item> items;
 
 }

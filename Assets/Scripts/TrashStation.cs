@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashStation : Station {
+public class TrashStation : Interactable {
 
     public override void Interact() {
         if (player.childCount > 0) {

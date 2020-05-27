@@ -109,3 +109,4 @@ MonoBehaviour:
   canHeat: 1
   isHeated: 0
   heatedMaterial: {fileID: 2100000, guid: e73c3cb7041aea66d862c31b7c82de58, type: 2}
+  heatTime: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GetFlask
   m_EditorClassIdentifier: 
   name: Get Flask
-  actionTime: 0
+  canHeat: 1
+  heatTime: 0
   items:
   - {fileID: 11400000, guid: 686faffe3792a70f7848e6ab8e47205c, type: 2}

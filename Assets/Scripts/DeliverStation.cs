@@ -11,7 +11,8 @@ public class DeliverStation : Interactable {
             GameManager.instace.score += formulaFound.score;
             scoreText.text =  "Score: "+ GameManager.instace.score;
             Destroy(formulaFound.panel);
-            Destroy(player.GetComponent<Experiment>().gameObject);
+            formulaFound.completed = true;
+            Destroy(player.GetChild(0).gameObject);
         }
     }
 
@@ -19,6 +20,8 @@ public class DeliverStation : Interactable {
         Experiment exp = player.GetComponentInChildren<Experiment>();
         if (exp) {
             foreach (Formula f in GameManager.instace.toDoFormulas) {
+                if(f.completed)
+                    continue;
                 var cnt = new Dictionary<Action, int>();
                 foreach (Action a in exp.actions) {
                     if (cnt.ContainsKey(a)) {
