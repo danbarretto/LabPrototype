@@ -24,7 +24,7 @@ public class Holdable : Interactable {
             onGround = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.rotation = Quaternion.identity;
-            StartCoroutine(ReturnToHand((player.forward * .8f) + player.position, 0.5f));
+            StartCoroutine(ReturnToHand(pc.hands.position, 0.5f));
 
         } else {
             pc = transform.parent.GetComponentInParent<PlayerController>();

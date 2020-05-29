@@ -6,11 +6,12 @@ public class HeatStation : Station {
 
     public Image timer;
     public bool expPlaced = false;
+    public float totalTime = 0f;
     public override void Interact() {
         if (!expPlaced) {
             Experiment exp = player.GetComponentInChildren<Experiment>();
-
-            float totalTime = 0f;
+            expPlaced = true;
+            totalTime = 0f;
             if (exp) {
                 foreach (Action act in exp.actions) {
                     if (!act.canHeat)return;
@@ -23,29 +24,39 @@ public class HeatStation : Station {
                 transform.position.y + 1,
                 transform.position.z - 1
             ));
-            StartCoroutine(HeatUp(totalTime));
+            StartCoroutine(HeatUp(totalTime, exp));
             player.GetComponent<PlayerController>().child = null;
-        } else {
+        } else if (expPlaced && !player.GetComponent<PlayerController>().child) {
             Experiment exp = GetComponentInChildren<Experiment>();
-                exp.transform.parent = player;
-                exp.PlaceExperiment((player.forward * .8f) + player.position);
-            if (timer.fillAmount == 1f) {
+            exp.transform.parent = player;
+            exp.PlaceExperiment(player.GetComponent<PlayerController>().hands.position);
+            StopAllCoroutines();
+            if (timer.fillAmount >= 1f) {
                 base.Interact();
             }
+            timer.fillAmount = 0f;
             player.GetComponent<PlayerController>().child = exp.parentInteractable;
-            expPlaced=false;
+            expPlaced = false;
+
         }
     }
 
-    public IEnumerator HeatUp(float heatTime) {
+    public IEnumerator HeatUp(float heatTime, Experiment exp) {
         float t = 0f;
+        if (exp.timeHeated == 0f)
+            timer.fillAmount = 0;
+        else {
+            timer.fillAmount = exp.timeHeated / heatTime;
+            t = exp.timeHeated;
+        }
         expPlaced = true;
         while (t < heatTime) {
             t += Time.deltaTime;
+            exp.timeHeated += Time.deltaTime;
             timer.fillAmount = t / heatTime;
             yield return null;
         }
-        
+
     }
 
 }

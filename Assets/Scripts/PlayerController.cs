@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
     private string xAxis, zAxis, fire, fire2;
 
     public float speed = 20f, interactionRadius = 3f;
+
+    public Transform hands;
     public bool isInZone = false;
     private Rigidbody rigidBody;
     public Interactable focus;

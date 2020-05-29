@@ -5,6 +5,8 @@ using UnityEngine;
 public class Experiment : MonoBehaviour {
     public List<Action> actions;
     public Interactable parentInteractable;
+
+    public float timeHeated;
     public bool isHeated;
 
     private void Awake() {

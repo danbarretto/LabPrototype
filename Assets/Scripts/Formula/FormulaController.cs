@@ -17,16 +17,16 @@ public class FormulaController : MonoBehaviour {
         maxTime = formula.maxWaitTime;
         timeLeft = maxTime;
         formulaName.text = formula.name;
+        StartCoroutine(CountDown());
     }
 
-
-    private void Update() {
-        if(timeLeft > 0f){
+    private IEnumerator CountDown() {
+        while(timeLeft > 0f){
             timeLeft -= Time.deltaTime;
             timerBar.fillAmount = timeLeft / maxTime;
-        }else{
-            Debug.Log("Acabou!!!");
+            yield return null;
         }
+        Destroy(gameObject);
     }
 
 }

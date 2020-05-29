@@ -65,7 +65,6 @@
      <Compile Include="Assets\Scripts\Holdable.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Reagent.cs" />
      <Compile Include="Assets\Scripts\Scriptable Objects\Action.cs" />
      <Compile Include="Assets\Scripts\Scriptable Objects\Formula.cs" />
      <Compile Include="Assets\Scripts\Scriptable Objects\Item.cs" />
@@ -73,8 +72,14 @@
      <Compile Include="Assets\Scripts\Tools.cs" />
      <Compile Include="Assets\Scripts\TrashStation.cs" />
      <None Include="Assets\FreeLabAssets\Shaders\SBS_Mana.shader" />
+ <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProGrids">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
@@ -85,17 +90,29 @@
  <Reference Include="Unity.ProBuilder">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.ProBuilder.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.ProGrids.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -106,38 +123,11 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.AddOns.Editor">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
@@ -145,11 +135,20 @@
  <Reference Include="Unity.Postprocessing.Runtime">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ProBuilder.AddOns.Editor">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
  <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/home/daniel/LabPrototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/daniel/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
