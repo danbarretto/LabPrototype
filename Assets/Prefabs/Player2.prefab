@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  interactionRadius: 2.5
   hands: {fileID: 3751511611070567018}
   isInZone: 0
   focus: {fileID: 0}

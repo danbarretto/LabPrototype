@@ -13,20 +13,24 @@ public class Holdable : Interactable {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        gameObject.layer = 2;
 
     }
     public override void Interact() {
         //transform.localScale = Vector3.one;
         if (onGround) {
+            //Ignores Raycast
+            gameObject.layer = 2;
             transform.parent.parent = player;
             pc = transform.parent.GetComponentInParent<PlayerController>();
             pc.child = this;
             onGround = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.rotation = Quaternion.identity;
-            StartCoroutine(ReturnToHand(pc.hands.position, 0.5f));
-
+            //StartCoroutine(ReturnToHand(pc.hands.position, 0.5f));
+            transform.position = pc.hands.position;
         } else {
+            gameObject.layer = 0;
             pc = transform.parent.GetComponentInParent<PlayerController>();
             transform.parent.parent = null;
             pc.child = null;

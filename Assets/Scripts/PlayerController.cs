@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     private string xAxis, zAxis, fire, fire2;
 
-    public float speed = 20f, interactionRadius = 3f;
-
+    public float speed = 20f;
+    private float maxDistance = 4f;
     public Transform hands;
     public bool isInZone = false;
     private Rigidbody rigidBody;
@@ -20,10 +20,6 @@ public class PlayerController : MonoBehaviour {
 
     public Player playerNum;
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
-    }
     private void Start() {
         rigidBody = GetComponent<Rigidbody>();
         if (playerNum == Player.Player1) {
@@ -48,33 +44,29 @@ public class PlayerController : MonoBehaviour {
 
         rigidBody.velocity = new Vector3(moveHorizontal * speed, 0f, moveVertical * speed);
 
-        if (Input.GetButtonDown(fire)) {
-            if(focus !=null && isInZone){
-                focus.Interact();
-            }else if(!isInZone && child!=null){
-                child.Interact();
+        RaycastHit objectHit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        float distance = 1.6f;
+
+        Debug.DrawRay(transform.position, fwd * distance, Color.green);
+        if(focus)
+            Debug.DrawRay(focus.gameObject.transform.position,transform.position, Color.blue);
+        if (Physics.Raycast(transform.position, fwd, out objectHit, distance)) {
+            if (objectHit.collider.gameObject.CompareTag("Interactable")) {
+                SetFocus(objectHit.collider.GetComponent<Interactable>());
             }
         }
-
+       
+        if (Input.GetButtonDown(fire) && focus) {
+            focus.Interact();
+        }
+        if (Input.GetButtonDown(fire2) && child) {
+            child.Interact();
+        }
     }
 
     public string getFire() {
         return fire;
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Interactable")) {
-            isInZone = true;
-            Interactable interactable = other.GetComponent<Interactable>();
-            if (interactable != null) {
-                SetFocus(interactable);
-            }
-        }
-    }
-    private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Interactable")) {
-            isInZone = false;
-        }
     }
 
     public void SetFocus(Interactable newFocus) {
