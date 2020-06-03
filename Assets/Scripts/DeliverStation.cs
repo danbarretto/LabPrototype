@@ -12,7 +12,7 @@ public class DeliverStation : Station {
             scoreText.text =  "Score: "+ GameManager.instace.score;
             Destroy(formulaFound.panel);
             GameManager.instace.toDoFormulas.Remove(formulaFound);
-            Destroy(player.GetComponent<PlayerController>().child.transform.parent);
+            Destroy(player.GetComponentInChildren<Experiment>().gameObject);
         }
     }
 
