@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Counter : Interactable {
+public class Counter : Station{
 
     public GameObject item;
 

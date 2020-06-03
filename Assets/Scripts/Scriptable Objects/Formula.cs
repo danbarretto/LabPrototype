@@ -13,8 +13,6 @@ public class Formula : ScriptableObject {
     [SerializeField]
     public List<Action> actions;
 
-    public bool completed;
-
     public GameObject panel;
 
 }

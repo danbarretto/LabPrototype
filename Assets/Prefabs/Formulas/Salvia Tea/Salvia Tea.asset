@@ -10,15 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b8f7e5ac5132016f9948c09cf203019, type: 3}
-  m_Name: ChaSalvia
+  m_Name: New Formula
   m_EditorClassIdentifier: 
   name: Salvia Tea
   score: 600
-  maxWaitTime: 60
-  actions:
-  - {fileID: 11400000, guid: 539877be78e5879908c4972c5f7fadce, type: 2}
-  - {fileID: 11400000, guid: 024b01614ffccc37788e4f6350388cdb, type: 2}
-  - {fileID: 11400000, guid: 7dde4a23c529a3a2b8ebb84261488ded, type: 2}
-  - {fileID: 11400000, guid: f4b8b6704f72b0ddbaf51fcbb298c626, type: 2}
+  maxWaitTime: 120
+  actions: []
   completed: 0
   panel: {fileID: 0}
