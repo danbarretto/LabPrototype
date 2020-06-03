@@ -5,9 +5,9 @@ using UnityEngine;
 public class TrashStation : Interactable {
 
     public override void Interact() {
-        if (player.childCount > 0) {
-            PlayerController pc = player.GetComponent<PlayerController>();
-            Destroy(pc.child.gameObject);
+        PlayerController pc = player.GetComponent<PlayerController>();
+        if (pc.child) {
+            Destroy(pc.child.transform.parent.gameObject);
             pc.child = null;
         }
     }
