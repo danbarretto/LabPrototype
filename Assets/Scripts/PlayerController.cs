@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     private string xAxis, zAxis, fire, fire2;
 
-    public float speed = 20f, interactionRadius = 3f;
-
+    public float speed = 20f;
+    public float interactionDistance = 2.5f;
     public Transform hands;
     public bool isInZone = false;
     private Rigidbody rigidBody;
@@ -20,10 +20,6 @@ public class PlayerController : MonoBehaviour {
 
     public Player playerNum;
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
-    }
     private void Start() {
         rigidBody = GetComponent<Rigidbody>();
         if (playerNum == Player.Player1) {
@@ -48,49 +44,59 @@ public class PlayerController : MonoBehaviour {
 
         rigidBody.velocity = new Vector3(moveHorizontal * speed, 0f, moveVertical * speed);
 
-        if (Input.GetButtonDown(fire)) {
-            if(focus !=null && isInZone){
-                focus.Interact();
-            }else if(!isInZone && child!=null){
-                child.Interact();
+        RaycastHit objectHit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        Debug.DrawRay(transform.position, fwd * interactionDistance, Color.green);
+        if (Physics.Raycast(transform.position, fwd, out objectHit, Mathf.Infinity)) {
+        if (objectHit.collider.gameObject.CompareTag("Interactable") &&
+            Vector3.Distance(objectHit.transform.position, transform.position) < interactionDistance) {
+            SetFocus(objectHit.collider.GetComponent<Interactable>());
+        } else {
+            RemoveFocus();
+        }
+    }
+
+    if (Input.GetButtonDown(fire2) && focus && !(focus is Holdable || focus is Station)) {
+        focus.Interact();
+    }
+    if (Input.GetButtonDown(fire)) {
+        PickUp();
+    }
+}
+
+private void PickUp() {
+    if (!focus && child && child is Holdable) {
+        child.Interact();
+    } else if (focus) {
+        if (focus is Holdable) {
+            Holdable obj = (Holdable)focus;
+            if (obj.isSafe) {
+                obj.Interact();
             }
-        }
-
-    }
-
-    public string getFire() {
-        return fire;
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Interactable")) {
-            isInZone = true;
-            Interactable interactable = other.GetComponent<Interactable>();
-            if (interactable != null) {
-                SetFocus(interactable);
-            }
+        } else if (focus is Station) {
+            focus.Interact();
         }
     }
-    private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Interactable")) {
-            isInZone = false;
-        }
-    }
+}
+public string getFire() {
+    return fire;
+}
 
-    public void SetFocus(Interactable newFocus) {
-        if (newFocus != focus) {
-            if (focus != null)
-                focus.OnDefocused();
-            focus = newFocus;
-        }
-        newFocus.OnFocused(transform);
-    }
-
-    public void RemoveFocus() {
+public void SetFocus(Interactable newFocus) {
+    if (newFocus != focus) {
         if (focus != null)
             focus.OnDefocused();
-        focus = null;
-
+        focus = newFocus;
     }
+    newFocus.OnFocused(transform);
+}
+
+public void RemoveFocus() {
+    if (focus != null)
+        focus.OnDefocused();
+    focus = null;
+
+}
 
 }

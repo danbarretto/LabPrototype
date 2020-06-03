@@ -37,7 +37,8 @@ public class CreateStation : Station {
         GameObject newHoldable = Instantiate(itemToCreate.model, (player.forward * .8f) + player.position, Quaternion.identity);
         exp.parentInteractable = newHoldable.GetComponent<Interactable>();
         exp.actions.Add(stationAction);
-
+        //Ignores Raycast when in hands
+        newHoldable.layer = 2;
         newHoldable.transform.parent = experiment.transform;
         newHoldable.transform.localScale = Vector3.one;
 

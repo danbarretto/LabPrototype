@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class DeliverStation : Interactable {
+public class DeliverStation : Station {
 
     public Text scoreText;
     private Formula formulaFound;
@@ -11,8 +11,8 @@ public class DeliverStation : Interactable {
             GameManager.instace.score += formulaFound.score;
             scoreText.text =  "Score: "+ GameManager.instace.score;
             Destroy(formulaFound.panel);
-            formulaFound.completed = true;
-            Destroy(player.GetChild(0).gameObject);
+            GameManager.instace.toDoFormulas.Remove(formulaFound);
+            Destroy(player.GetComponent<PlayerController>().child.transform.parent);
         }
     }
 
@@ -20,8 +20,6 @@ public class DeliverStation : Interactable {
         Experiment exp = player.GetComponentInChildren<Experiment>();
         if (exp) {
             foreach (Formula f in GameManager.instace.toDoFormulas) {
-                if(f.completed)
-                    continue;
                 var cnt = new Dictionary<Action, int>();
                 foreach (Action a in exp.actions) {
                     if (cnt.ContainsKey(a)) {

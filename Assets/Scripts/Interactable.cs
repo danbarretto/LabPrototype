@@ -14,7 +14,6 @@ public class Interactable : MonoBehaviour {
         Debug.Log("Interact with " + interactionTransform.name);
     }
 
-
     public void OnFocused(Transform playerTransform) {
         isFocused = true;
         player = playerTransform;

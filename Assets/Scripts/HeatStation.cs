@@ -28,8 +28,8 @@ public class HeatStation : Station {
             player.GetComponent<PlayerController>().child = null;
         } else if (expPlaced && !player.GetComponent<PlayerController>().child) {
             Experiment exp = GetComponentInChildren<Experiment>();
-            exp.transform.parent = player;
             exp.PlaceExperiment(player.GetComponent<PlayerController>().hands.position);
+            exp.transform.SetParent(player);
             StopAllCoroutines();
             if (timer.fillAmount >= 1f) {
                 base.Interact();
